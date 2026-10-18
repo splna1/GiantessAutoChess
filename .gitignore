@@ -1,0 +1,65 @@
+# ============================================================================
+# Tread / Unreal Engine 5.8
+#
+# 只跟踪：Source/  Config/  Tools/  document/  .codebuddy/
+#         以及顶层 .uproject / .md / .mcp.json
+#
+# Content/ 故意不入库：
+#   1) 工程约定是「每个 UE 资产都必须能由脚本重建」
+#      （见 document/10_UE5_TECH_PIPELINE.md、HANDOFF_N2.md §4）
+#   2) Content 共 7.5 GB，超过 GitHub 仓库 5 GB 硬上限
+#   以后要用 LFS 补进来时，删掉下面的 Content/ 一行并配 .gitattributes。
+# ============================================================================
+
+# ---- Unreal 生成物 ----
+Binaries/
+Build/
+DerivedDataCache/
+Intermediate/
+Saved/
+.vs/
+*.sln
+*.slnx
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+
+# ---- 游戏资产（可由 Tools/ 脚本重建）----
+Content/
+RawContent/
+mmd_12/
+
+# ---- 旧工程与归档包 ----
+# 0614/ 是嵌进来的旧 Unity 工程（13.8 GB），0614.rar 单文件 5.99 GB
+0614/
+*.rar
+*.zip
+*.7z
+
+# ---- 第三方素材包 ----
+# model/ 是下载的华沙 3D 地图等素材（爱给网 aigei.com 等），约 1.7 GB，
+# 含第三方授权条款，不入库；需要分发时走 Releases（单文件 < 2 GiB）。
+model/
+
+# ---- 工具产物 ----
+.playwright-cli/
+
+# ---- 临时/调试产物 ----
+check-*.png
+tmp_parse*.py
+*.log
+__pycache__/
+*.pyc
+*.pyo
+
+# ---- 本机工具状态（非工程源码）----
+.claude/
+.codex/
+memory/
+
+# ---- 系统垃圾 ----
+Thumbs.db
+desktop.ini
+.DS_Store

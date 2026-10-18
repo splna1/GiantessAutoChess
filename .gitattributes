@@ -1,0 +1,17 @@
+# 文本文件统一交给 git 判断，避免 CRLF/LF 混入 diff
+* text=auto
+
+# 二进制：禁止换行符转换与文本 diff
+*.uasset  binary
+*.umap    binary
+*.uexp    binary
+*.ubulk   binary
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.xlsx    binary
+*.uproject binary
+
+# Unity/UE 生成的资产用 LFS 时才需要下面这些（当前 Content 不入库，先注释着）
+# *.uasset filter=lfs diff=lfs merge=lfs -text
+# *.umap   filter=lfs diff=lfs merge=lfs -text
